@@ -8,7 +8,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900">
+    <nav className="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-900 drop-shadow-sm">
       <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <div className="items-center space-x-3 rtl:space-x-reverse flex flex-wrap text-sm sm:text-xl">
           <a href="https://www.facebook.com/profile.php?id=100063463767304">

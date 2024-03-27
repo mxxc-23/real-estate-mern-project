@@ -1,3 +1,5 @@
+
+
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import PropertyTypeCard from "../components/PropertyTypeCard";
@@ -5,7 +7,20 @@ import PropertyTypeCard from "../components/PropertyTypeCard";
 import homeBackground from "../../public/home_background.jpg";
 
 const Home = () => {
-  const handleSeeMore = () => {
+  
+  const handleSeeMoreHouseAndLot = () => {
+    // Handle See More button click
+  };
+
+  const handleSeeMoreCondominiums = () => {
+    // Handle See More button click
+  };
+
+  const handleSeeMoreResidentialLot = () => {
+    // Handle See More button click
+  };
+
+  const handleSeeMoreCommercialLot = () => {
     // Handle See More button click
   };
   return (
@@ -37,7 +52,7 @@ const Home = () => {
               <div className="mt-10 flex justify-start" id="property-search">
                 <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
                   <div className="relative">
-                    <a className=" text-xl block py-3 px-4 text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    <a  className=" text-xl block py-3 px-4 text-white bg-blue-800 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                       Search
                     </a>
                   </div>
@@ -48,36 +63,37 @@ const Home = () => {
         </div>
       </section>
       <section>
-        <div className="flex justify-center items-center h-screen flex-wrap">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+        <div className="flex justify-center items-center h-3/5 flex-wrap py-5">
+          <div className="grid grid-cols-1 px-10 md:grid-cols-2 lg:grid-cols-2 gap-14">
           <PropertyTypeCard
             imageUrl="../../public/property_type/casamira2.jpg"
             title="House and Lot"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at sapien ullamcorper, nec vestibulum mauris efficitur."
-            onClick={handleSeeMore}
+            onClick={handleSeeMoreHouseAndLot}
           />
           <PropertyTypeCard
-            imageUrl="https://via.placeholder.com/150"
+            imageUrl="../../public/property_type/avida.jpg"
             title="Condominiums"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at sapien ullamcorper, nec vestibulum mauris efficitur."
-            onClick={handleSeeMore}
+            onClick={handleSeeMoreCondominiums}
           />
           <PropertyTypeCard
-            imageUrl="https://via.placeholder.com/150"
+            imageUrl="../../public/property_type/emerald2.jpg"
             title="Residential Lot"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at sapien ullamcorper, nec vestibulum mauris efficitur."
-            onClick={handleSeeMore}
+            onClick={handleSeeMoreResidentialLot}
           />
           <PropertyTypeCard
-            imageUrl="https://via.placeholder.com/150"
+            imageUrl="../../public/property_type/woodridge.jpg"
             title="Commercial Lot"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean egestas magna at sapien ullamcorper, nec vestibulum mauris efficitur."
-            onClick={handleSeeMore}
+            onClick={handleSeeMoreCommercialLot}
           />
           </div>
         </div>
       </section>
-      <Footer />
+      
+    <Footer/>
     </main>
   );
 };
