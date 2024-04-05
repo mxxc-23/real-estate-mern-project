@@ -6,5 +6,7 @@ const router = express.Router();
 //response: from the server that you give to the client
 router.get('/user', userTest)
 
+router.get('{}')
+
 export default router;
 
