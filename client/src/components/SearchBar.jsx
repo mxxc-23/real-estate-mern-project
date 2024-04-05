@@ -22,6 +22,7 @@ const SearchBar = () => {
         <option value="/developers">Developers</option>
         <option value="/developer/the-southprime-flats">The Southprime Flats</option>
         <option value="/developer/wv-towers">WV Towers</option>
+        <option value="/developer/emerald-estate">Emerald Estate</option>
       </select>
       <select
         value={location}

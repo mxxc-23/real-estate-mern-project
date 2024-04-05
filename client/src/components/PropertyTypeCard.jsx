@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 const PropertyTypeCard = ({ imageUrl, title, description, onClick }) => {
 

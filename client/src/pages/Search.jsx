@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
