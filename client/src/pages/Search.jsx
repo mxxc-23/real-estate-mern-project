@@ -3,6 +3,7 @@
 import SearchBar from "../components/SearchBar";
 import Footer from "../components/Footer";
 import PropertySearchCard from "../components/PropertySearchCard";
+import Header from "../components/Header";
 
 const searchResults = [
   "Temporary1",
@@ -15,6 +16,7 @@ const searchResults = [
 const Search = () => {
   return (
     <main>
+      <Header/>
       <SearchBar />
       <div className="flex flex-wrap px-14 justify-between pt-5">
         {searchResults.map((searchResult) => (

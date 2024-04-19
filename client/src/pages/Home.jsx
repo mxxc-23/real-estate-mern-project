@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import PropertyTypeCard from "../components/PropertyTypeCard";
 
 import homeBackground from "../../public/home_background.jpg";
+import Header from "../components/Header";
 
 const Home = () => {
   const handleSeeMoreHouseAndLot = () => {
@@ -21,6 +22,7 @@ const Home = () => {
   };
   return (
     <main className="bg-transparent">
+      <Header/>
       <section className="relative">
         <div
           className="h-screen"
