@@ -1,17 +1,100 @@
+/* eslint-disable react/jsx-key */
 import MainHeader from "../components/MainHeader";
+import { useState, useEffect } from "react";
 
 const AdminView = () => {
+  const [developersList, setDevelopersList] = useState([{}]);
+  const [selectedDeveloper, setSelectedDeveloper] = useState({});
+  const [propertyList, setPropertiesList] = useState([{}]);
+  const [selectedProperty, setSelectedProperty] = useState({});
+
+  useEffect(() => {
+    const loadDevelopers = async () => {
+      try {
+        const developers = await fetch("/api/developers", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const data = await developers.json();
+        setDevelopersList(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    const loadProperties = async () => {
+      try {
+        const properties = await fetch("/api/properties", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const data = await properties.json();
+        setPropertiesList(data);
+      } catch (error) {
+        console.error("Error loading properties: ", error);
+      }
+    };
+
+    loadProperties();
+    loadDevelopers();
+  }, []);
+
+  const handleDeveloperClick = async (developer) => {
+    setSelectedDeveloper(developer);
+    try {
+      const properties = await fetch("/api/property", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ developer_id: selectedDeveloper._id }),
+      });
+
+      console.log(properties)
+
+      const data = await properties.json();
+      setPropertiesList(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error loading properties: ", error);
+    }
+  };
+
+  const handlePropertyClick = (property) => {
+    setSelectedProperty(property);
+    console.log(selectedProperty);
+  };
+
+  const handleCreateDeveloper = () => {
+    console.log("wewooo")
+  }
   return (
     <div>
       <MainHeader />
-      <div className="mt-3 mx-auto max-w-5xl p-1 grid grid-cols-2 gap-4 ">
-        <div>
+      <div id="mainContainer" className="mt-3 mx-auto max-w-5xl p-1 grid grid-cols-2 max-h-lvh gap-4">
+        <div className="">
           <h1 className="p-3 font-semibold text-lg">Developers</h1>
-          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
-            list
+          <div className="bg-white border border-gray-300 rounded-lg shadow-lg p-6" style={{ height: "70vh" }}>
+            <div className="flex flex-col gap-3 overflow-hidden">
+              {developersList.map((developer) => (
+                <div
+                  onClick={() => handleDeveloperClick(developer)}
+                  className="hover:bg-slate-300 py-2 rounded border"
+                  value={developer._id}
+                  key={developer._id}
+                >
+                  <h1 className="pl-3">{developer.developer_name}</h1>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="p-3 flex gap-5">
-            <button id="addDeveloper" title="Create developer">
+            <button onClick={handleCreateDeveloper} id="addDeveloper" title="Create developer">
               <svg
                 className="w-9 h-9 text-green-400 dark:text-white"
                 aria-hidden="true"
@@ -71,8 +154,19 @@ const AdminView = () => {
         </div>
         <div>
           <h1 className="p-3 font-semibold text-lg">Properties</h1>
-          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
-            list
+          <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6" style={{ height: "70vh" }}>
+            <div className="flex flex-col gap-3 overflow-hidden">
+              {propertyList.map((property) => (
+                <div
+                  onClick={() => handlePropertyClick(property)}
+                  className="hover:bg-slate-300 py-2 rounded border"
+                  value={property._id}
+                  key={property._id}
+                >
+                  <h1 className="pl-3">{property.property_title}</h1>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="p-3 flex gap-5">
             <button id="addProperties">

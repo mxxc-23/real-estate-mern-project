@@ -11,7 +11,7 @@ const searchResults = [
     href: "/developer/emerald-estate/1",
   },
   {
-    title: "Pine Dulexe",
+    title: "Pine Dulexe", 
     descrption: "45.32 sqm start at 19,504/month",
     href: "/developer/emerald-estate/2",
   },
