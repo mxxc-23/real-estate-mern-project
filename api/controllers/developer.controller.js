@@ -3,9 +3,11 @@ const developerController = {}
 
 developerController.retrieveDevelopers = async (request, response) => {
    try {
-      
-   } catch (error) {
+      const developers = await Developer.find();
 
+      response.status(200).json(developers)
+   } catch (error) {
+      response.status(500).json(error);
    }
 }
 
