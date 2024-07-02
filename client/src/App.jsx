@@ -8,6 +8,8 @@ import EmeraldEstate from './pages/SearchByDeveloper/EmeraldEstate'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import AdminView from './pages/AdminView'
+import CreateDeveloper from './components/Modal/Developers/CreateDeveloper'
+import UpdateDeveloper from './components/Modal/Developers/UpdateDeveloper'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
       <Route path="/developer/the-southprime-flats" element={<SouthprimeFlats />}/>
       <Route path="/developer/wv-towers" element={<WVTowers />}/>
       <Route path="/developer/emerald-estate" element={<EmeraldEstate />}/>
+      <Route path="/create-developer" element={<CreateDeveloper/>}/>
+      <Route path="/create-developer" element={<UpdateDeveloper/>}/>
 
       <Route path="/search" element={<Search />}/> 
 
